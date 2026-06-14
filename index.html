@@ -1,0 +1,493 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LanguageBoost · Muhammad Arif | Mobile Development Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0c0c;
+            color: #f2e8e8;
+            line-height: 1.55;
+            cursor: default;
+        }
+        /* Custom scrollbar matching SDG 4 Crimson Accent */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1818;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5192d;
+            border-radius: 10px;
+        }
+        
+        a, button, .btn, .skill, nav a, .video-wrapper, .lab-card {
+            cursor: pointer;
+        }
+
+        /* Header - clean professional crimson theme */
+        header {
+            background: #0f0a0a;
+            text-align: center;
+            padding: 70px 24px 80px;
+            border-bottom: 1px solid #3a1c1e;
+            position: relative;
+        }
+        .badge-sdg {
+            display: inline-block;
+            background: #2d1215;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #ffbcbc;
+            border: 1px solid #8c1d24;
+            margin-bottom: 28px;
+        }
+        .hero-name {
+            font-size: 4.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+        .hero-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #c7b8b9;
+        }
+        .hero-sub {
+            font-size: 0.85rem;
+            color: #9c8a8b;
+            margin-top: 14px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #151011;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 42px;
+            border-bottom: 1px solid #3a1c1e;
+        }
+        nav a {
+            color: #dccbcc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            padding: 6px 0;
+            border-bottom: 1px solid transparent;
+        }
+        nav a i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        nav a:hover {
+            color: #ffffff;
+            border-bottom-color: #c5192d;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        section {
+            padding: 65px 0;
+            border-bottom: 1px solid #241f20;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ece2e2;
+            margin-bottom: 36px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #c5192d;
+            padding-left: 22px;
+        }
+        .section-title i {
+            font-size: 1.5rem;
+            color: #e53e3e;
+        }
+
+        /* Premium Minimal Card Layout */
+        .card {
+            background: #181213;
+            border-radius: 24px;
+            padding: 32px 36px;
+            margin-bottom: 28px;
+            border: 1px solid #2b2525;
+            transition: border 0.2s;
+        }
+        .card:hover {
+            border-color: #8c1d24;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #ecdede;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Labs Grid Structure */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 28px;
+        }
+        .lab-card {
+            background: #181213;
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid #2b2525;
+            transition: border 0.2s;
+        }
+        .lab-card:hover {
+            border-color: #c5192d;
+        }
+        .lab-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #ece2e2;
+        }
+        .video-wrapper {
+            margin: 18px 0 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+        }
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0 12px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #281e1f;
+            padding: 8px 20px;
+            border-radius: 36px;
+            color: #ece2e2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.7rem;
+            transition: 0.2s;
+            border: 1px solid #4f3a3b;
+        }
+        .btn-primary {
+            background: #8c1d24;
+            border-color: #c5192d;
+        }
+        .btn-primary:hover {
+            background: #a31424;
+        }
+        .lab-card p {
+            font-size: 0.85rem;
+            color: #c7b8b9;
+            margin-top: 10px;
+        }
+
+        /* Technical Skill Pills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .skill {
+            background: #221a1b;
+            padding: 6px 20px;
+            border-radius: 32px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #e2cdc6;
+            border: 1px solid #533a3b;
+        }
+        .skill i {
+            margin-right: 6px;
+            font-size: 0.7rem;
+        }
+
+        hr {
+            margin: 24px 0;
+            border-color: #2b2525;
+        }
+        ul {
+            padding-left: 1.2rem;
+        }
+        li {
+            margin: 6px 0;
+            color: #dccbcc;
+        }
+        footer {
+            background: #0a0707;
+            text-align: center;
+            padding: 36px 24px;
+            color: #8e7a7b;
+            font-size: 0.75rem;
+            border-top: 1px solid #241f20;
+        }
+        .inline-icon {
+            margin-right: 8px;
+            color: #e53e3e;
+        }
+        .ref-text {
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 22px;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge-sdg"><i class="fas fa-book-open"></i> SDG 4 · LanguageBoost</div>
+    <div class="hero-name">Muhammad Arif bin Mohd Sayuti</div>
+    <div class="hero-title">Mobile Application Development Portfolio</div>
+    <div class="hero-sub">A212014</div>
+</header>
+
+<nav>
+    <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+    <a href="#labs"><i class="fas fa-laptop-code"></i> Labs</a>
+    <a href="#project1"><i class="fas fa-language"></i> Project 1</a>
+    <a href="#project2"><i class="fas fa-brain"></i> Project 2</a>
+    <a href="#reflection"><i class="fas fa-book-reader"></i> Reflection</a>
+    <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+    <a href="#references"><i class="fas fa-scroll"></i> References</a>
+</nav>
+
+<div class="container">
+    <!-- ================= 1. STUDENT PROFILE ================= -->
+    <section id="profile">
+        <h2 class="section-title"><i class="fas fa-id-card"></i> Student Profile</h2>
+        <div class="card">
+            <p><i class="fas fa-user-graduate inline-icon"></i> <strong>Name:</strong> Muhammad Arif bin Mohd Sayuti</p>
+            <p><i class="fas fa-qrcode inline-icon"></i> <strong>Matric No:</strong> A212014</p>
+            <p><i class="fas fa-mobile-alt inline-icon"></i> <strong>Programme:</strong> Software Engineering</p>
+            <p><i class="fas fa-chalkboard inline-icon"></i> <strong>Instructor:</strong> Dr. Nazatul Aini</p>
+            <hr>
+            <h3><i class="fas fa-compass"></i> Introduction & Learning Goals</h3>
+            <p>This academic e-Portfolio chronicles my technical milestones throughout the Mobile Application Development curriculum. My journey focuses on constructing high-tier Android logic, establishing robust architectural patterns, and creating accessible software. My core goal is to architect lightweight, localized education platforms that dismantle universal learning barriers.</p>
+            <ul style="margin-top: 16px;">
+                <li><i class="fas fa-check-circle" style="color:#e53e3e;"></i> Deploy scalable decoupled native frameworks using clean MVVM architectures.</li>
+                <li><i class="fas fa-check-circle" style="color:#e53e3e;"></i> Implement smart offline-first capabilities using localized database engines and cache syncs.</li>
+                <li><i class="fas fa-check-circle" style="color:#e53e3e;"></i> Build inclusive micro-learning technology frameworks engineered around global SDG 4 mandates.</li>
+            </ul>
+            <hr>
+            <h3><i class="fas fa-globe-asia"></i> Chosen SDG</h3>
+            <p><strong>SDG 4 — Quality Education:</strong> "LanguageBoost delivers micro-incentives and gamified interactive workflows to foster universal language literacy and ensure equitable access to learning tools."</p>
+        </div>
+    </section>
+
+    <!-- ================= 2. LAB SUBMISSIONS ================= -->
+    <section id="labs">
+        <h2 class="section-title"><i class="fab fa-android"></i> Lab Submissions</h2>
+        <div class="labs-grid">
+            <!-- Lab 1 -->
+            <div class="lab-card">
+                <h3>Lab 1 – User Interface Design</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/7dm72770g6M" title="Lab 1 UI Demo" allowfullscreen></iframe>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/A212014/LanguageBoost-v1" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Repository</a>
+                    <a href="https://youtu.be/7dm72770g6M" class="btn" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
+                </div>
+                <p><strong>Reflection:</strong> Mastered systematic UI component structure, view declarations, responsive layout scaling, and multi-tier view hierarchies within native layout environments.</p>
+            </div>
+            <!-- Lab 2 -->
+            <div class="lab-card">
+                <h3>Lab 2 – Interaction & Events</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/xKFc4d0is2E" title="Lab 2 Interactions" allowfullscreen></iframe>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/A212014/LanguageBoost-v1" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Repository</a>
+                    <a href="https://youtu.be/xKFc4d0is2E" class="btn" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
+                </div>
+                <p><strong>Reflection:</strong> Implemented active listener protocols, input data management validation forms, and state management hooks to orchestrate immediate user micro-interactions.</p>
+            </div>
+            <!-- Lab 3 -->
+            <div class="lab-card">
+                <h3>Lab 3 – Material Design</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/KnaRQksVGgc" title="Material Design" allowfullscreen></iframe>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/A212014/LanguageBoost-v1" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Repository</a>
+                    <a href="https://youtu.be/KnaRQksVGgc" class="btn" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
+                </div>
+                <p><strong>Reflection:</strong> Standardized unified Material Design Systems focused on accessible contrast ratios, systematic component behaviors, custom color branding, and typographic depth.</p>
+            </div>
+            <!-- Lab 4 -->
+            <div class="lab-card">
+                <h3>Lab 4 – Navigation Component</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Navigation Component" allowfullscreen></iframe>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/A212014/LanguageBoost-v1" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Repository</a>
+                    <a href="https://youtu.be/jNQXAC9IVRw" class="btn" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
+                </div>
+                <p><strong>Reflection:</strong> Structured complex application navigation graphs, handled programmatic stack manipulation, fragment routing, and explicit, type-safe bundle argument passing.</p>
+            </div>
+            <!-- Lab 5 -->
+            <div class="lab-card">
+                <h3>Lab 5 – Room Database</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Room Database" allowfullscreen></iframe>
+                </div>
+                <div class="button-group">
+                    <a href="https://github.com/A212014/LanguageBoost-v2" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> Repository</a>
+                    <a href="https://youtu.be/jNQXAC9IVRw" class="btn" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
+                </div>
+                <p><strong>Reflection:</strong> Designed structured multi-table local relational databases using Room DAOs, mapping out background database transactions and offline data persistence strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. PROJECT SUBMISSIONS ================= -->
+    <!-- Project 1 -->
+    <section id="project1">
+        <h2 class="section-title"><i class="fas fa-language"></i> Project 1</h2>
+        <div class="card">
+            <h3>Problem Statement</h3>
+            <p>Conventional language acquisition methodologies often suffer from high user drop-off due to a distinct lack of daily micro-incentives, dense unoptimized reading loads, and failure to support digestible, habit-forming routine sessions.</p>                       
+            <div class="button-group" style="margin: 20px 0 16px;">
+                <a href="https://github.com/A212014/LanguageBoost-v1" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="https://youtu.be/s7vg2fkP4gE" class="btn" target="_blank"><i class="fab fa-youtube"></i> YouTube VSR</a>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/s7vg2fkP4gE" title="Project 1 VSR" allowfullscreen></iframe>
+            </div>
+            <h3>Lessons Learned</h3>
+            <p>Successfully synthesized localized responsive interface frameworks with structured explicit navigation routing systems. Developed clean operational boundaries across user onboarding and localized lesson validation loops while mastering low-level view lifecycle events and activity orientation state handling.</p>
+        </div>
+    </section>
+
+    <!-- Project 2 -->
+    <section id="project2">
+        <h2 class="section-title"><i class="fas fa-brain"></i> Project 2</h2>
+        <div class="card">
+            <h3>Problem Statement</h3>
+            <p>Moving past basic mock-ups, language ecosystems lack modern real-time cloud data architectures, reactive edge-validation processing engines, and hardware device layer adaptation workflows needed to deliver immediate contextual study feedback loops.</p>
+            <div class="button-group" style="margin: 20px 0 16px;">
+                <a href="https://github.com/A212014/LanguageBoost-v2" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="https://youtu.be/jNQXAC9IVRw" class="btn" target="_blank"><i class="fab fa-youtube"></i> YouTube VSR</a>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Project 2 Demo" allowfullscreen></iframe>
+            </div>
+            <h3>Lessons Learned</h3>
+            <p>Constructing this tier-1 application required handling sophisticated mobile architectures. Integrated Firebase Authentication alongside Firestore NoSQL backend configurations to handle real-time student document syncing globally. Coupled local Room SQLite engines with asynchronous flow routines to implement reliable offline-first functionalities. Programmed Retrofit REST interfaces with OkHttp clients to query remote semantic libraries, overlaying real-world spatial contextual maps using the Google Maps SDK. Applied on-device edge AI routines via Google ML Kit and lifecycle-aligned CameraX capture pipelines to support visual object translation queries. The implementation of decoupled MVVM patterns, Hilt-driven dependency injection, and coroutine workers allowed for modular scalability while balancing thread workloads, database query constraints, and hardware lifecycle boundaries.</p>
+        </div>
+    </section>
+
+    <!-- ================= 4. REFLECTION & LEARNING JOURNEY ================= -->
+    <section id="reflection">
+        <h2 class="section-title"><i class="fas fa-book-reader"></i> Reflection & Learning Journey</h2>
+        <div class="card">
+            <p class="ref-text">My learning journey throughout this course has been deeply transformative and highly practical. Transitioning from basic UI components to complex, sensor-driven cloud applications continuously challenged my problem-solving skills. By addressing SDG 4 through software, I learned how to prioritize user-centric design while handling complex backend integrations.</p>
+            <br>
+            <p class="ref-text">Overcoming engineering blockers—such as schema migration conflicts in Room, multi-tier asynchronous thread synchronization, and real-time offline caching—greatly strengthened my architectural workflow strategies. Aligning my engineering milestones with the mission of SDG 4 verified how intentional mobile code can actively democratize high-quality education globally. This cumulative portfolio acts as validation of my engineering evolution, from basic scripting to production-grade mobile craftsmanship.</p>
+        </div>
+    </section>
+
+    <!-- ================= 5. SKILLS & TECH STACK ================= -->
+    <section id="skills">
+        <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Tech Stack</h2>
+        <div class="card">
+            <div class="skills">
+                <span class="skill"><i class="fab fa-android"></i> Kotlin</span>
+                <span class="skill"><i class="fas fa-mobile-alt"></i> Jetpack Compose / Android SDK</span>
+                <span class="skill"><i class="fas fa-paintbrush"></i> XML / Material Design 3</span>
+                <span class="skill"><i class="fas fa-database"></i> Room Local Database</span>
+                <span class="skill"><i class="fas fa-fire"></i> Firebase Auth & Firestore</span>
+                <span class="skill"><i class="fas fa-cloud-upload-alt"></i> Retrofit HTTP Client</span>
+                <span class="skill"><i class="fas fa-chart-line"></i> MVVM Pattern + LiveData</span>
+                <span class="skill"><i class="fas fa-code"></i> Coroutines Asynchronous Flows</span>
+                <span class="skill"><i class="fab fa-github-alt"></i> Git / GitHub Controls</span>
+                <span class="skill"><i class="fas fa-camera"></i> CameraX Infrastructure</span>
+                <span class="skill"><i class="fas fa-robot"></i> Google ML Kit (Vision AI)</span>
+                <span class="skill"><i class="fas fa-cube"></i> Hilt Dependency Injection</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. RESOURCES & REFERENCES ================= -->
+    <section id="references">
+        <h2 class="section-title"><i class="fas fa-scroll"></i> Resources & References</h2>
+        <div class="card">
+            <ul style="list-style: none; padding-left: 0;">
+                <li><i class="fas fa-external-link-alt" style="color:#e53e3e; margin-right: 12px;"></i> Google Android Developers Architecture Documentation</li>
+                <li><i class="fas fa-external-link-alt" style="color:#e53e3e; margin-right: 12px;"></i> Material Design 3 Design Token Standards</li>
+                <li><i class="fas fa-external-link-alt" style="color:#e53e3e; margin-right: 12px;"></i> Firebase Engine Services (Firestore, Auth Infrastructure Docs)</li>
+                <li><i class="fas fa-external-link-alt" style="color:#e53e3e; margin-right: 12px;"></i> Square Retrofit 2 REST Client Engine Specifications</li>
+                <li><i class="fas fa-external-link-alt" style="color:#e53e3e; margin-right: 12px;"></i> Google Maps SDK for Android Runtime Integrations</li>
+                <li><i class="fas fa-robot" style="color:#e53e3e; margin-right: 12px;"></i> AI Assistant Attributions (ChatGPT & Gemini for code refinement and testing optimization)</li>
+                <li><i class="fas fa-graduation-cap" style="color:#e53e3e; margin-right: 12px;"></i> United Nations SDG 4 Development Platforms & Directives</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>Muhammad Arif bin Mohd Sayuti (A212014) — Mobile Application Development Portfolio</p>
+    <p style="margin-top: 8px;">© 2026 · All Academic Repositories Securely Linked</p>
+</footer>
+
+</body>
+</html>
+
+```
